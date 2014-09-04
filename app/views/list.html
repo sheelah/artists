@@ -1,0 +1,36 @@
+      <section class="artist-page">
+        <div class="search">
+          <h1>Artist Directory</h1>
+          <label>Search: </label>
+          <input ng-model="query" placeholder="Search for artists" autofocus>
+          <label class="form-group">By:
+            <select ng-model="artist.artistOrder">
+              <option value="name">Name</option>
+              <option value="reknown">Reknown</option>
+            </select>
+          </label>
+          <label class="form-group">
+            <input ng-model="direction" type="radio" name="direction" checked>
+            Ascending
+          </label>
+          <label class="form-group">
+            <input ng-model="direction" type="radio" name="direction"
+              value="reverse">
+              Descending
+          </label>
+        </div>
+        <ul class="media-list artist-list" ng-show="query">
+          <li ng-animate="'animate'" class="media artist" ng-repeat="item in
+            artist.artists | filter:query |
+            orderBy:artist.artistOrder:direction">
+            <a href="/details/{{artist.artists.indexOf(item)}}">
+              <img class="media-object pull-left" ng-src="{{item.picture}}"
+                alt="Photo of {{item.name}}">
+              <div class="media-body pull-left">
+                <h2 class="media-heading">{{item.name}}</h2>
+                <h3 class="media-heading">{{item.reknown}}</h3>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
