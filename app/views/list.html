@@ -2,7 +2,8 @@
         <div class="search">
           <h1>Artist Directory</h1>
           <label>Search: </label>
-          <input ng-model="query" placeholder="Search for artists" autofocus>
+          <input ng-model="artist.query" placeholder="Search for artists"
+            autofocus>
           <label class="form-group">By:
             <select ng-model="artist.artistOrder">
               <option value="name">Name</option>
@@ -10,18 +11,24 @@
             </select>
           </label>
           <label class="form-group">
-            <input ng-model="direction" type="radio" name="direction" checked>
-            Ascending
+            <input ng-model="artist.direction" type="radio" name="direction"
+              checked>Ascending
           </label>
           <label class="form-group">
-            <input ng-model="direction" type="radio" name="direction"
-              value="reverse">
-              Descending
+            <input ng-model="artist.direction" type="radio" name="direction"
+              value="reverse">Descending
           </label>
+          <button ng-show="artist.filterArtists"
+            ng-click="artist.changeFiltering(false)" class="btn btn-primary">
+            Show All</button>
+          <button ng-show="!artist.filterArtists"
+            ng-click="artist.changeFiltering(true)" class="btn btn-primary">
+            Hide All</button>
         </div>
-        <ul class="media-list artist-list" ng-show="query">
+        <ul class="media-list artist-list"
+          ng-show="artist.query || !artist.filterArtists">
           <li ng-animate="'animate'" class="media artist" ng-repeat="item in
-            artist.artists | filter:query |
+            artist.artists | filter:artist.query |
             orderBy:artist.artistOrder:direction">
             <a href="/details/{{artist.artists.indexOf(item)}}">
               <img class="media-object pull-left" ng-src="{{item.picture}}"

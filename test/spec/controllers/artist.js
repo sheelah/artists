@@ -27,9 +27,18 @@ describe('Controller: ArtistCtrl', function () {
     expect(scope.artist.artistOrder).toEqual('name');
   });
 
+  it('should initially set filterResults to "true"', function () {
+    expect(scope.artist.filterArtists).toEqual(true);
+  });
+
   it('should set artists to data received', function () {
     expect(scope.artist.artists).toEqual({
       items: 'lotta stuff'
     });
+  });
+
+  it('should set filterResults when changeFiltering() is called', function () {
+    scope.artist.changeFiltering(false);
+    expect(scope.artist.filterArtists).toEqual(false);
   });
 });

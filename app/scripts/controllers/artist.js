@@ -15,9 +15,20 @@
 
     _this.artistOrder = 'name';
 
+    _this.filterArtists = true;
+
     ArtistService.getArtists().success(function(data) {
       _this.artists = data;
     });
+  }
+
+  ArtistCtrl.prototype.changeFiltering = function(toggleVal) {
+    if (toggleVal === true) {
+      this.filterArtists = true;
+    } else {
+      // Turn off filtering
+      this.filterArtists = false;
+    }
   }
 
   angular
