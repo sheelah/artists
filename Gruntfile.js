@@ -76,6 +76,8 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              // Support Angular html5Mode
+              // https://github.com/yeoman/generator-angular/issues/433
               require('connect-modrewrite') (['!(\\..+)$ / [L]']),
               connect.static('.tmp'),
               connect().use('/bower_components',connect.static('./bower_components')),
