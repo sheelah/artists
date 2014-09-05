@@ -104,6 +104,12 @@ body {
 .info {
   overflow: hidden;
 }
+h1.artist-name {
+  padding-top: 10px;
+}
+h3.artist-school {
+  padding-bottom: 10px;
+}
 .artist-list li {
   opacity: 0.9;
   padding: 15px 0;
@@ -124,6 +130,10 @@ body {
   opacity: 0;
   height: 0;
   overflow: hidden;
+}
+.nav-link {
+  margin-top: 10px;
+  display: inline-block;
 }
 
 

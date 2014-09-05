@@ -12,14 +12,18 @@
         <span class="sr-only">Next</span>
       </button>
     </a>
-    <h1 class="media-heading">{{details.artists[details.whichItem].name}}</h1>
+    <h1 class="media-heading artist-name">
+      {{details.artists[details.whichItem].name}}
+    </h1>
     <div class="info">
-      <h3 class="media-heading">{{details.artists[details.whichItem].reknown}}</h3>
+      <h3 class="media-heading artist-school">
+        {{details.artists[details.whichItem].reknown}}
+      </h3>
       <img class="media-object pull-left"
         ng-src="{{details.artists[details.whichItem].picture}}" alt="Photo of
         {{details.artists[details.whichItem].name}}">
       <div class="media-body bio pull-left">{{details.artists[details.whichItem].bio}}
       </div>
     </div>
-    <a href="index.html">&laquo; Back to search</a>
+    <a class="nav-link" href="index.html">&laquo; Back to search</a>
 </section>
