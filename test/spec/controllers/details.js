@@ -14,8 +14,7 @@ describe('Controller: DetailsCtrl', function () {
     routeParams;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend,
-      $routeParams) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
     scope = $rootScope.$new();
 
     routeParams = {itemId: 7};
